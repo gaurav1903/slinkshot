@@ -9,7 +9,37 @@ class SkinMarketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('skin market page'),
+          backgroundColor: Colors.blue,
+          title: Text('Skin Market'),
+          centerTitle: true,
+          actions: [
+            FlatButton(
+              onPressed: null,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFFFD700), shape: BoxShape.circle),
+                padding: EdgeInsets.all(7),
+                child: CircleAvatar(
+                  maxRadius: 10,
+                  minRadius: 8,
+                  backgroundImage: AssetImage('images/card2.jpg'),
+                ),
+              ),
+            ),
+            FlatButton(
+              onPressed: null,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFFFD700), shape: BoxShape.circle),
+                padding: EdgeInsets.all(7),
+                child: CircleAvatar(
+                  maxRadius: 10,
+                  minRadius: 8,
+                  backgroundImage: AssetImage('images/money.png'),
+                ),
+              ),
+            ),
+          ],
         ),
         body: Container(
           padding: EdgeInsets.all(10),
@@ -22,7 +52,7 @@ class SkinMarketScreen extends StatelessWidget {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 crossAxisCount: 2,
-                childAspectRatio: 0.8,
+                childAspectRatio: 0.7,
               ),
               itemBuilder: (ctx, index) {
                 return Container(
@@ -40,16 +70,24 @@ class SkinMarketScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        // color: Colors.white,
                         shape: BoxShape.circle,
-                        // gradient: LinearGradient(
-                        //     colors: [Colors.white, Colors.black]),
+                        gradient: LinearGradient(
+                            colors: [Colors.white, Colors.black]),
                       ),
                       child: CircleAvatar(
                         radius: 70,
                         backgroundImage: AssetImage('images/kratos2.jpg'),
                       ),
                     ),
+                    SizedBox(height: 10),
+                    Text(
+                      '\$600',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    )
                   ]),
                 );
               }),
