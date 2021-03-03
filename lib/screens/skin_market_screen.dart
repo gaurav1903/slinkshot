@@ -19,7 +19,7 @@ class SkinMarketScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         gradient: LinearGradient(
-                            colors: [Colors.purple, Colors.deepPurpleAccent])),
+                            colors: [Colors.purple, Colors.white])),
                     padding: EdgeInsets.all(10),
                     child: CircleAvatar(
                       backgroundImage: AssetImage('images/kratos2.jpg'),
