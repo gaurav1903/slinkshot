@@ -14,31 +14,29 @@ class SkinMarketScreen extends StatelessWidget {
         title: Text('Skin Market'),
         centerTitle: true,
         actions: [
-          FlatButton(
-            onPressed: null,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFFFD700), shape: BoxShape.circle),
-              padding: EdgeInsets.all(7),
-              child: CircleAvatar(
-                maxRadius: 10,
-                minRadius: 8,
-                backgroundImage: AssetImage('images/card2.jpg'),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(7),
+                margin: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                    color: Color(0xFFFFD700), shape: BoxShape.circle),
+                child: CircleAvatar(
+                  maxRadius: 11,
+                  backgroundImage: AssetImage('images/card2.jpg'),
+                ),
               ),
-            ),
-          ),
-          FlatButton(
-            onPressed: null,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color(0xFFFFD700), shape: BoxShape.circle),
-              padding: EdgeInsets.all(7),
-              child: CircleAvatar(
-                maxRadius: 10,
-                minRadius: 8,
-                backgroundImage: AssetImage('images/money.png'),
+              Container(
+                padding: EdgeInsets.all(7),
+                margin: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                    color: Color(0xFFFFD700), shape: BoxShape.circle),
+                child: CircleAvatar(
+                  maxRadius: 11,
+                  backgroundImage: AssetImage('images/money.png'),
+                ),
               ),
-            ),
+            ],
           )
         ],
       ),
@@ -71,15 +69,15 @@ class GridViewWidget extends StatelessWidget {
     return SafeArea(
       child: Container(
         color: Theme.of(context).primaryColor,
-        height: 250 * (skins.length / 2 + skins.length % 2),
+        height: 220 * (skins.length / 2 + skins.length % 2),
         child: GridView.builder(
             physics: new NeverScrollableScrollPhysics(),
             padding: EdgeInsets.all(10),
             scrollDirection: Axis.vertical,
             itemCount: skins.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 10,
               crossAxisCount: 2,
               childAspectRatio: 0.6,
             ),
