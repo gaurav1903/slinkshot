@@ -54,6 +54,13 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
     log('build runs');
     log(_controller.text);
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'first'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.access_alarm), label: 'second')
+        ],
+      ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Text('Skin Market'),
