@@ -71,7 +71,7 @@ class GridViewWidget extends StatelessWidget {
     return SafeArea(
       child: Container(
         color: Theme.of(context).primaryColor,
-        height: 220 * (skins.length / 2 + skins.length % 2),
+        height: 250 * (skins.length / 2 + skins.length % 2),
         child: GridView.builder(
             physics: new NeverScrollableScrollPhysics(),
             padding: EdgeInsets.all(10),
@@ -79,9 +79,9 @@ class GridViewWidget extends StatelessWidget {
             itemCount: skins.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              mainAxisSpacing: 20,
               crossAxisCount: 2,
-              childAspectRatio: 0.7,
+              childAspectRatio: 0.6,
             ),
             itemBuilder: (ctx, index) {
               return Container(

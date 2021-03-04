@@ -16,7 +16,7 @@ List<Skin> skins1 = [
       color2: Color(0xFF302116)),
   Skin(
       imagepath: 'images/cod2.png',
-      title: 'PrinceOfPersia',
+      title: 'CallOfDuty',
       color1: Color(0xFFDDCF92),
       amount: 100,
       color2: Color(0xFF302116)),
