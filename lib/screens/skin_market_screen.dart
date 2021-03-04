@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:ui';
+import 'package:flutter/services.dart';
 import 'package:slinkshot/model/skins.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,11 +47,15 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
+    ///to make app fullscreen
     log('build runs');
     log(_controller.text);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF1B1818),
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text('Skin Market'),
         centerTitle: true,
         actions: [
@@ -60,8 +65,7 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
                 padding: EdgeInsets.all(7),
                 margin: EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    shape: BoxShape.circle),
+                    color: Color(0xFFFFD700), shape: BoxShape.circle),
                 child: CircleAvatar(
                   maxRadius: 11,
                   backgroundImage: AssetImage('images/card2.jpg'),
@@ -86,7 +90,8 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
         padding: EdgeInsets.all(10),
         child: ListView(
           children: [
-            TextField(
+            Container(
+                child: TextField(
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'Search',
@@ -104,7 +109,26 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
                   _controller.text = val;
                 });
               },
-            ),
+            )),
+            SizedBox(height: 10),
+            Center(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                desiredtextwid('900 ', 25),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFFFFD700), shape: BoxShape.circle),
+                  child: CircleAvatar(
+                    maxRadius: 14,
+                    backgroundImage: AssetImage('images/money.png'),
+                  ),
+                ),
+              ],
+            )),
+            SizedBox(height: 10),
+            Center(child: desiredtextwid('Owned SlinkCoin')),
+            SizedBox(height: 20),
             Center(child: desiredtextwid('Season3')),
             SizedBox(height: 10),
             GridViewWidget(_controller.text == null || _controller.text.isEmpty
@@ -129,7 +153,7 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
           ],
         ),
       ),
-    ); //todo :Add list of skins in a particular level
+    );
   }
 }
 
@@ -141,7 +165,7 @@ class GridViewWidget extends StatelessWidget {
     return SafeArea(
       child: Container(
         color: Theme.of(context).primaryColor,
-        height: 210 * (skins.length / 2 + skins.length % 2),
+        height: 200 * (skins.length / 2 + skins.length % 2),
         child: GridView.builder(
             physics: new NeverScrollableScrollPhysics(),
             padding: EdgeInsets.all(10),
@@ -185,14 +209,17 @@ class GridViewWidget extends StatelessWidget {
 
 class desiredtextwid extends StatelessWidget {
   final String s;
-  desiredtextwid(this.s);
+  final double size;
+  desiredtextwid(this.s, [this.size]);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       s,
       style: TextStyle(
-          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          fontSize: size == null ? 20 : size,
+          fontWeight: FontWeight.bold,
+          color: Colors.white),
     );
   }
 }
