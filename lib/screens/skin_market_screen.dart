@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:slinkshot/model/skins.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -42,67 +42,87 @@ class SkinMarketScreen extends StatelessWidget {
           )
         ],
       ),
-      body: GridViewWidget(), //todo :Add list of skins in a particular level
-    );
+      body: Container(
+        color: Theme.of(context).primaryColor,
+        padding: EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            Center(child: desiredtextwid('Season3')),
+            SizedBox(height: 10),
+            GridViewWidget(skins1),
+            Center(child: desiredtextwid('Season2')),
+            SizedBox(height: 10),
+            GridViewWidget(skins2),
+            Center(child: desiredtextwid('Season1')),
+            SizedBox(height: 10),
+            GridViewWidget(skins3)
+          ],
+        ),
+      ),
+    ); //todo :Add list of skins in a particular level
   }
 }
 
 class GridViewWidget extends StatelessWidget {
-  const GridViewWidget({
-    Key key,
-  }) : super(key: key);
+  final List<Skin> skins;
+  GridViewWidget(this.skins);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      color: Theme.of(context).primaryColor,
-      child: GridView.builder(
-          padding: EdgeInsets.all(10),
-          scrollDirection: Axis.vertical,
-          itemCount: skins.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            childAspectRatio: 0.7,
-          ),
-          itemBuilder: (ctx, index) {
-            return Container(
-              child: Column(children: [
-                Text(
-                  skins[index].title,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    // color: Colors.white,
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                        colors: [skins[index].color1, skins[index].color2]),
+    return SafeArea(
+      child: Container(
+        color: Theme.of(context).primaryColor,
+        height: 220 * (skins.length / 2 + skins.length % 2),
+        child: GridView.builder(
+            physics: new NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.all(10),
+            scrollDirection: Axis.vertical,
+            itemCount: skins.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+            ),
+            itemBuilder: (ctx, index) {
+              return Container(
+                child: Column(children: [
+                  desiredtextwid(skins[index].title),
+                  SizedBox(
+                    height: 10,
                   ),
-                  child: CircleAvatar(
-                    radius: 70,
-                    backgroundImage: AssetImage(skins[index].imagepath),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      // color: Colors.white,
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                          colors: [skins[index].color1, skins[index].color2]),
+                    ),
+                    child: CircleAvatar(
+                      radius: 70,
+                      backgroundImage: AssetImage(skins[index].imagepath),
+                    ),
                   ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  '\$${skins[index].amount}',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )
-              ]),
-            );
-          }),
+                  SizedBox(height: 10),
+                  desiredtextwid('\$${skins[index].amount}'),
+                ]),
+              );
+            }),
+      ),
+    );
+  }
+}
+
+class desiredtextwid extends StatelessWidget {
+  String s;
+  desiredtextwid(this.s);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      s,
+      style: TextStyle(
+          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
     );
   }
 }

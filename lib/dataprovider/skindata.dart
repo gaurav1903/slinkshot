@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slinkshot/model/skins.dart';
 
-List<Skin> skins = [
+List<Skin> skins1 = [
   Skin(
       imagepath: 'images/kratos2.jpg',
       title: 'GodOfWar',
@@ -20,6 +20,8 @@ List<Skin> skins = [
       color1: Color(0xFFDDCF92),
       amount: 100,
       color2: Color(0xFF302116)),
+];
+List<Skin> skins2 = [
   Skin(
       imagepath: 'images/darksiders2.jpg',
       title: 'Darksiders',
@@ -38,6 +40,8 @@ List<Skin> skins = [
       color1: Color(0xFFB0ABA5),
       amount: 100,
       color2: Color(0xFF0E1013)),
+];
+List<Skin> skins3 = [
   Skin(
       imagepath: 'images/thor2.jpg',
       title: 'Thor',
