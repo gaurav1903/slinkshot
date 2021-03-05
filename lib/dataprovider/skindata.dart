@@ -23,9 +23,9 @@ List<Skin> skins1 = [
   Skin(
       imagepath: 'images/pop2.jpg',
       title: 'Prince Of Persia',
-      color1: Color(0xFFDDCF92),
+      color1: Color(0xFFF1C884),
       amount: 100,
-      color2: Color(0xFF302116)),
+      color2: Color(0xFFF9A602)),
   Skin(
       imagepath: 'images/kratos2.jpg',
       title: 'God Of War',
