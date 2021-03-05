@@ -55,10 +55,16 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
     log(_controller.text);
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        type: BottomNavigationBarType.fixed,
+        selectedIconTheme: IconThemeData(size: 20, color: Colors.white),
+        unselectedIconTheme: IconThemeData(size: 20, color: Colors.white),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'first'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.access_alarm), label: 'second')
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
         ],
       ),
       appBar: AppBar(
@@ -79,9 +85,9 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
                 ),
               ),
               Container(
-                // padding: EdgeInsets.all(7),
-                padding: EdgeInsets.fromLTRB(7, 7, 7, 0),
-                margin: EdgeInsets.fromLTRB(4, 4, 4, 0),
+                padding: EdgeInsets.all(7),
+                // padding: EdgeInsets.fromLTRB(7, 7, 7, 0),
+                margin: EdgeInsets.all(4),
                 decoration: BoxDecoration(
                     color: Color(0xFFFFD700), shape: BoxShape.circle),
                 child: CircleAvatar(
@@ -173,8 +179,8 @@ class GridViewWidget extends StatelessWidget {
     return SafeArea(
       child: Container(
         color: Theme.of(context).primaryColor,
-        height: 200 * (skins.length / 2 + skins.length % 2) +
-            15 * (skins.length / 2 + skins.length % 2 - 1),
+        height: 180 * (skins.length / 2 + skins.length % 2) +
+            60 * (skins.length / 2 + skins.length % 2 - 1),
         child: GridView.builder(
             physics: new NeverScrollableScrollPhysics(),
             // padding: EdgeInsets.all(10),

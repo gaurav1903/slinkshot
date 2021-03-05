@@ -52,6 +52,30 @@ List<Skin> skins2 = [
       color1: Color(0xFFB0ABA5),
       amount: 100,
       color2: Color(0xFF0E1013)),
+  Skin(
+      imagepath: 'images/Goku1.jpg',
+      title: 'Goku',
+      color1: Color(0xFFCB7746),
+      amount: 100,
+      color2: Color(0xFF2A2870)),
+  Skin(
+      imagepath: 'images/cod2.png',
+      title: 'CallOfDuty',
+      color1: Color(0xFFDDCF92),
+      amount: 100,
+      color2: Color(0xFF302116)),
+  Skin(
+      imagepath: 'images/kratos2.jpg',
+      title: 'GodOfWar',
+      color1: Color(0xFF9F9A98),
+      amount: 100,
+      color2: Color(0xFF464E48)),
+  Skin(
+      imagepath: 'images/witcher.jpg',
+      title: 'Witcher',
+      color1: Color(0xFFF1C884),
+      amount: 100,
+      color2: Color(0xFFC2232D)),
 ];
 List<Skin> skins3 = [
   Skin(
