@@ -54,19 +54,19 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
     log('build runs');
     log(_controller.text);
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(
-      //   backgroundColor: Theme.of(context).primaryColor,
-      //   type: BottomNavigationBarType.fixed,
-      //   selectedIconTheme: IconThemeData(size: 20, color: Colors.white),
-      //   unselectedIconTheme: IconThemeData(size: 20, color: Colors.white),
-      //   items: [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-      //     BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
-      //     BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
-      //     BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: ''),
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-      //   ],
-      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        type: BottomNavigationBarType.fixed,
+        selectedIconTheme: IconThemeData(size: 20, color: Colors.white),
+        unselectedIconTheme: IconThemeData(size: 20, color: Colors.white),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+        ],
+      ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Text('Skin Market'),
@@ -179,8 +179,10 @@ class GridViewWidget extends StatelessWidget {
     return SafeArea(
       child: Container(
         color: Theme.of(context).primaryColor,
-        height: 180 * (skins.length / 2 + skins.length % 2) +
-            60 * (skins.length / 2 + skins.length % 2 - 1),
+        height: skins.isEmpty
+            ? 0
+            : 180 * (skins.length / 2 + skins.length % 2) +
+                60 * (skins.length / 2 + skins.length % 2 - 1),
         child: GridView.builder(
             physics: new NeverScrollableScrollPhysics(),
             // padding: EdgeInsets.all(10),

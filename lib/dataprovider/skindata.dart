@@ -84,4 +84,16 @@ List<Skin> skins3 = [
       color1: Color(0xFFA8E5FA),
       amount: 100,
       color2: Color(0xFF1A2D33)),
+  Skin(
+      imagepath: 'images/black_adam.png',
+      title: 'Black Adam',
+      color1: Colors.yellow,
+      amount: 100,
+      color2: Colors.black),
+  Skin(
+      imagepath: 'images/cyberpunk1.jpg',
+      title: 'CyberPunk2077',
+      color1: Color(0xFF8C4B08),
+      amount: 100,
+      color2: Color(0xFFCFA111)),
 ];
