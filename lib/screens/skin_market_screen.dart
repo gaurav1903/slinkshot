@@ -54,19 +54,19 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
     log('build runs');
     log(_controller.text);
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        type: BottomNavigationBarType.fixed,
-        selectedIconTheme: IconThemeData(size: 20, color: Colors.white),
-        unselectedIconTheme: IconThemeData(size: 20, color: Colors.white),
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   backgroundColor: Theme.of(context).primaryColor,
+      //   type: BottomNavigationBarType.fixed,
+      //   selectedIconTheme: IconThemeData(size: 20, color: Colors.white),
+      //   unselectedIconTheme: IconThemeData(size: 20, color: Colors.white),
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(Icons.add), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: ''),
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+      //   ],
+      // ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Text('Skin Market'),
@@ -143,21 +143,21 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
             SizedBox(height: 10),
             Center(child: desiredtextwid('Owned SlinkCoin')),
             SizedBox(height: 20),
-            Center(child: desiredtextwid('Season3')),
+            Center(child: desiredtextwid('Season3', 30)),
             SizedBox(height: 10),
             GridViewWidget(_controller.text == null || _controller.text.isEmpty
                 ? skins1
                 : skins1.where((x) {
                     return test(x, _controller.text);
                   }).toList()),
-            Center(child: desiredtextwid('Season2')),
+            Center(child: desiredtextwid('Season2', 30)),
             SizedBox(height: 10),
             GridViewWidget(_controller.text == null || _controller.text.isEmpty
                 ? skins2
                 : skins2.where((x) {
                     return test(x, _controller.text);
                   }).toList()),
-            Center(child: desiredtextwid('Season1')),
+            Center(child: desiredtextwid('Season1', 30)),
             SizedBox(height: 10),
             GridViewWidget((_controller.text == null || _controller.text.isEmpty
                 ? skins3
