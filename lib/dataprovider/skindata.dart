@@ -3,6 +3,12 @@ import 'package:slinkshot/model/skins.dart';
 
 List<Skin> skins1 = [
   Skin(
+      imagepath: 'images/Goku1.jpg',
+      title: 'Goku',
+      color1: Color(0xFFCB7746),
+      amount: 100,
+      color2: Color(0xFF2A2870)),
+  Skin(
       imagepath: 'images/cod2.png',
       title: 'CallOfDuty',
       color1: Color(0xFFDDCF92),
@@ -14,6 +20,12 @@ List<Skin> skins1 = [
       color1: Color(0xFF9F9A98),
       amount: 100,
       color2: Color(0xFF464E48)),
+  Skin(
+      imagepath: 'images/witcher.jpg',
+      title: 'Witcher',
+      color1: Color(0xFFF1C884),
+      amount: 100,
+      color2: Color(0xFFC2232D)),
   Skin(
       imagepath: 'images/pop2.jpg',
       title: 'PrinceOfPersia',

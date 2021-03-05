@@ -79,8 +79,9 @@ class _SkinMarketScreenState extends State<SkinMarketScreen> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(7),
-                margin: EdgeInsets.all(4),
+                // padding: EdgeInsets.all(7),
+                padding: EdgeInsets.fromLTRB(7, 7, 7, 0),
+                margin: EdgeInsets.fromLTRB(4, 4, 4, 0),
                 decoration: BoxDecoration(
                     color: Color(0xFFFFD700), shape: BoxShape.circle),
                 child: CircleAvatar(
@@ -172,18 +173,18 @@ class GridViewWidget extends StatelessWidget {
     return SafeArea(
       child: Container(
         color: Theme.of(context).primaryColor,
-        height: 200 * (skins.length / 2 + skins.length % 2),
+        height: 200 * (skins.length / 2 + skins.length % 2) +
+            15 * (skins.length / 2 + skins.length % 2 - 1),
         child: GridView.builder(
             physics: new NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.all(10),
+            // padding: EdgeInsets.all(10),
             scrollDirection: Axis.vertical,
             itemCount: skins.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 10,
-              crossAxisCount: 2,
-              childAspectRatio: 0.6,
-            ),
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                mainAxisSpacing: 15,
+                crossAxisSpacing: 20,
+                childAspectRatio: 21 / 31),
             itemBuilder: (ctx, index) {
               return Container(
                 child: Column(children: [
@@ -192,7 +193,7 @@ class GridViewWidget extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       // color: Colors.white,
                       shape: BoxShape.circle,
